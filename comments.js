@@ -1,13 +1,14 @@
-// Create a web server
-// Send back JSON data
-// GET, POST, DELETE, PUT
+const http = require("http");
 
-// // Dependencies
-// var http = require('http');
-// var url = require('url');
+const hostname = "127.0.0.1";
+const port = 3000;
 
-// // Configure our HTTP server to respond with Hello World to all requests.
-// var server = http.createServer(function (request, response) {
-//   response.writeHead(200, {"Content-Type": "text/plain"});
-//   response.end("Hello World\n");
-// });
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "text/plain");
+  res.end("Hello, World!\n");
+});
+
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
